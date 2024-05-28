@@ -28,7 +28,12 @@ app.use(static)
 // app.get("/", function(req, res){
 //   res.render("index", {title: "Home"})
 // })
+
+// Index route
 app.get("/", baseController.buildHome)
+
+// Inventory routes
+app.use("/inv", inventoryRoute)
 
 /* ***********************
  * Local Server Information
