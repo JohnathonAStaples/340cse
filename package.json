@@ -1,23 +1,22 @@
 {
-    "name": "cse340",
-    "version": "1.0.0",
-    "description": "Starter project for CSE 340",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js",
-        "dev": "nodemon server.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "dotenv": "^16.0.3",
-        "ejs": "^3.1.10",
-        "express": "^4.18.2",
-        "express-ejs-layouts": "^2.5.1",
-        "pg": "^8.8.0"
-    },
-    "devDependencies": {
-        "nodemon": "^3.1.0"
-    },
-    "packageManager": "pnpm@9.1.2+sha512.127dc83b9ea10c32be65d22a8efb4a65fb952e8fefbdfded39bdc3c97efc32d31b48b00420df2c1187ace28c921c902f0cb5a134a4d032b8b5295cbfa2c681e2"
+  "name": "cse340",
+  "version": "1.0.0",
+  "description": "Starter project for CSE 340",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
 }
