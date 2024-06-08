@@ -19,6 +19,27 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
+/* ***************************
+ *  Build inventory detail
+ * ************************** */
+invCont.buildByItemId = async function (req, res, next) {
+  const item_id = req.params.itemId
+  const data = await invModel.getItemById(item_id)
+  const grid = await utilities.buildItemGrid(data)
+  let nav = await utilities.getNav()
+  const itemName = data[0].inv_make
+  const itemModel = data[0].inv_model
+  const itemYear = data[0].inv_year
+  res.render("./inventory/itemDetail", {
+    title: `${itemName} ${itemModel} ${itemYear}`,//${itemYear}
+    nav,
+    grid,
+  })
+}
+
+/* ***************************
+ *  500 Error
+ * ************************** */
 invCont.InternalErr = async function (req, res, next){
   let nav = await utilities.getNav()
   const data = await invModel.getItemByIdErr()
