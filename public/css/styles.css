@@ -196,6 +196,49 @@ figure figcaption {
   margin-bottom: 1em;
 }
 
+#inv-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#inv-display li{
+  border: 4px solid black;
+  border-radius: 20px;
+  list-style: none;
+  padding: 10px;
+  margin: 10px;
+}
+
+#inv-display a{
+  text-decoration: none;
+}
+
+/* Item detail */
+
+#item-display {
+  margin: 5px;
+  display: flex;
+  border: 2px solid black;
+  flex-direction: row;
+  border-radius: 5px;
+}
+
+#item_image {
+  border-radius: 5px;
+}
+
+.vertical-line {
+  border-left: 1px solid black; 
+  height: inherit; 
+}
+
+#item-description{
+  /* border: 1px solid black;
+  border-radius: 5px; */
+  padding: 5px;
+}
+
 @media only screen and (min-width: 768px) {
 
   body {
@@ -282,5 +325,28 @@ figure figcaption {
 #add-ons, #review {
   margin-top: 0;
 }
+#item-display {
+  display: flex;
+  border: 2px solid black;
+  flex-direction: column;
+  border-radius: 5px;
+}
 
+.vertical-line {
+  border-top: 1px solid black; 
+  height: inherit; 
+}
+
+#item_image img{
+  max-width: 100%;
+  height: auto;
+}
+
+#navigation ul {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  align-items: flex-start;
+  align-content: space-between;
+}
 }
