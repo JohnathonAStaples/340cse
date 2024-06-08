@@ -19,4 +19,13 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
+invCont.InternalErr = async function (req, res, next){
+  let nav = await utilities.getNav()
+  const data = await invModel.getItemByIdErr()
+  res.render("error"), {
+    // title: `${data[0].inv_make}`,
+    nav
+  }
+}
+
 module.exports = invCont

@@ -37,7 +37,7 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 /* ***********************
  * Inventory routes
  *************************/
-app.use("/inv", inventoryRoute)
+app.use("/inv", utilities.handleErrors(inventoryRoute))
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
@@ -51,6 +51,10 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404) {message = err.message
+  } else {
+    message = "Oh no! There was a crash. Maybe try a differnt route?"
+  }
   res.render("errors/error", {
     title: err.status || 'Server Error',
     message: err.message,
