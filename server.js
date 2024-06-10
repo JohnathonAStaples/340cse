@@ -48,6 +48,7 @@ app.use(function(req, res, next){
  * Routes
  *************************/
 app.use(static)
+app.use("/account", require("./routes/accountRoute"))
 
 /* ***********************
  * Index route
