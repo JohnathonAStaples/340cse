@@ -48,7 +48,6 @@ app.use(function(req, res, next){
  * Routes
  *************************/
 app.use(static)
-app.use("/account", require("./routes/accountRoute"))
 
 /* ***********************
  * Index route
@@ -62,6 +61,11 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
  * Inventory routes
  *************************/
 app.use("/inv", utilities.handleErrors(inventoryRoute))
+
+/* ***********************
+ * Account Routes
+ *************************/
+app.use("/account", require("./routes/accountRoute"))
 
 /* ***********************
  * File Not Found Route - must be last route in list
