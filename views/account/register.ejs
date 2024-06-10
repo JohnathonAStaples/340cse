@@ -12,19 +12,25 @@
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
         </div>
+        <br>
         <div>
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" required>
         </div>
+        <br>
         <div>
             <label for="email">Email Address:</label>
             <input type="email" id="email" name="email" required>
         </div>
+        <br>
         <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <span class="password-toggle">Show</span>
+            <form>
+                <label for="password">Password:</label>
+                <input type="password" name="pword" id="pword">
+            <p>Passwords must be minimum of 12 characters and include 1 capital letter, 1 number and 1 special character.</p>
+            <span id="pswdBtn">Show Password</span>
         </div>
+        <br>
         <button type="submit">Register</button>
     </form>
 </div>
