@@ -8,6 +8,7 @@
 
 <div>
     <form>
+        <fieldset>
         <div>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -16,11 +17,14 @@
         <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <p>Passwords must be minimum of 12 characters and include 1 capital letter, 1 number and 1 special character.</p>
+            <div>
+            <i>Passwords must be minimum of 12 characters and include 1 capital letter, 1 number and 1 special character.</i>
+            </div>
         </div>
         <button type="submit">Login</button>
     </form>
     <div>
         <p>No account? <a href="/account/register">Sign-up</a></p>
     </div>
+</fieldset>
 </div>
