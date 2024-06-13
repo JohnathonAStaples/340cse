@@ -31,12 +31,11 @@ async function registerAccount(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
 
-  const regResult = await accountModel.registerAccount(
-    account_firstname,
-    account_lastname,
-    account_email,
-    account_password
-  )
+const regResult = await accountModel.registerAccount(
+  account_firstname,
+  account_lastname,
+  account_email,
+)
 
   if (regResult) {
     req.flash(
@@ -55,5 +54,26 @@ async function registerAccount(req, res) {
     })
   }
 }
+
+async function loginAccount(req, res) {
+  let nav = await utilities.getNav()
+  const {account_email, account_password} = req.body
   
-  module.exports = { buildLogin, buildRegister, registerAccount }
+const logResult = await accountModel.loginAccount(
+  account_email,
+  account_password
+)
+
+  if (logResult) {
+    req.flash(
+      "notice", 
+      `Please check your credentials and try again`
+    )
+    res.status(501).render("acount/login",{
+      title: "Login",
+      nav,
+    })
+  }
+}
+  
+  module.exports = { buildLogin, buildRegister, registerAccount, loginAccount }
