@@ -1,12 +1,23 @@
-const pswdBtn = document.querySelector("#pswdBtn");
-pswdBtn.addEventListener("click", function() {
-  const pswdInput = document.getElementById("pword");
-  const type = pswdInput.getAttribute("type");
-  if (type == "password") {
-    pswdInput.setAttribute("type", "text");
-    pswdBtn.innerHTML = "Hide Password";
+console.log('loaded')
+function shwPass(btn) {
+    console.log('Hi!')
+    let password = document.getElementById('account_password')
+    if(password.type == 'password') {
+        password.setAttribute('type', 'text')
+        btn.innerText = 'Hide password'
+    } else {
+        password.setAttribute('type', 'password')
+        btn.innerText = 'Show password'
+    }
+}
+
+function checkValidity(element) {
+  console.log('Hi!')
+  if (element.validity.valid) {
+      element.classList.remove('invalid');
+      element.classList.add('valid');
   } else {
-    pswdInput.setAttribute("type", "password");
-    pswdBtn.innerHTML = "Show Password";
+      element.classList.remove('valid');
+      element.classList.add('invalid');
   }
-});
+}

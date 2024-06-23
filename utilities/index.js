@@ -57,6 +57,9 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* **************************************
+* Build the item view
+* ************************************ */
 Util.buildItemGrid = async function(data){
   let grid
   if(data.length > 0) {

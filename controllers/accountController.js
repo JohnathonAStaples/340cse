@@ -1,4 +1,5 @@
 const utilities = require("../utilities")
+const js = require("../public/js/script")
 const accountModel = require("../models/account-model")
 const bcrypt = require("bcryptjs")
 
@@ -18,6 +19,7 @@ async function buildLogin(req, res, next) {
 * *************************************** */
 async function buildRegister(req, res, next) {
   let nav = await utilities.getNav()
+  let form = await utilities.buildRegisterGrid()
   res.render("account/register", {
     title: "Register",
     nav,
@@ -30,6 +32,7 @@ async function buildRegister(req, res, next) {
 * *************************************** */
 async function registerAccount(req, res) {
   let nav = await utilities.getNav()
+  let form = await utilities.buildLoginGrid()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
 
 // Hash the password before storing
@@ -60,6 +63,7 @@ const regResult = await accountModel.registerAccount(
     )
     res.status(201).render("account/login", {
       title: "Login",
+      form,
       nav,
     })
   } else {
