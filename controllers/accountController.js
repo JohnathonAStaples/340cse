@@ -19,7 +19,6 @@ async function buildLogin(req, res, next) {
 * *************************************** */
 async function buildRegister(req, res, next) {
   let nav = await utilities.getNav()
-  let form = await utilities.buildRegisterGrid()
   res.render("account/register", {
     title: "Register",
     nav,
