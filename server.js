@@ -17,6 +17,7 @@ const utilities = require("./utilities/index")
 const pool = require("./database")
 const session = require("express-session")
 const accountRoute = require('./routes/accountRoute.js');
+const bodyParser = require("body-parser");
 
 
 /* ***********************
@@ -33,15 +34,19 @@ app.use(
     saveUninitialized: true,
     name: "sessionId",
   })
-);
+)
 
 // Express Messages Middleware
 app.use(require("connect-flash")());
 app.use(function (req, res, next) {
   res.locals.messages = require("express-messages")(req, res);
   next();
-});
+})
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ // for parsing application/x-www-form-urlencoded
+  extended: true
+}))
 /* ***********************
  * View Engine and Templates
  *************************/
