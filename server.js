@@ -18,6 +18,7 @@ const pool = require("./database")
 const session = require("express-session")
 const accountRoute = require('./routes/accountRoute.js');
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 
 /* ***********************
@@ -47,6 +48,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ // for parsing application/x-www-form-urlencoded
   extended: true
 }))
+
+// Cookie parser
+app.use(cookieParser())
+// JWT checker
+app.use(utilities.checkJWTToken);
+
 /* ***********************
  * View Engine and Templates
  *************************/
