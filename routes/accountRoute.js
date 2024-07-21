@@ -1,27 +1,12 @@
-// Needed Resources
-const express = require("express");
-const router = new express.Router();
-const accountController = require("../controllers/accountController");
-const utilities = require("../utilities");
-const regValidate = require("../utilities/account-validation");
+// Needed Resources 
+const express = require("express")
+const router = new express.Router() 
+const accountController = require("../controllers/accountController")
+const utilities = require("../utilities")
 
 // Route to build account view
-router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagementView));
-router.get("/login", utilities.handleErrors(accountController.buildLogin));
-router.post(
-  "/login",
-  regValidate.loginRules(),
-  regValidate.checkLoginData,
-  utilities.handleErrors(accountController.accountLogin)
-);
-
-// Registration handlers
-router.get("/registration", utilities.handleErrors(accountController.buildRegister));
-router.post(
-  "/register",
-  regValidate.registrationRules(),
-  regValidate.checkRegData,
-  utilities.handleErrors(accountController.registerAccount)
-);
+router.get("/login", utilities.handleErrors(accountController.buildLogin))
+// Route to build registration view
+router.get("/registration", utilities.handleErrors(accountController.buildRegister))
 
 module.exports = router;
